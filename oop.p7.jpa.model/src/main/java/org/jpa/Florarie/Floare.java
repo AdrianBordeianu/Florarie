@@ -80,3 +80,4 @@ public class Floare implements Serializable {
 	}	
    
 }
+

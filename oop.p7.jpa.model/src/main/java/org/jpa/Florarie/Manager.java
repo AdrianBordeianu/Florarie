@@ -1,7 +1,5 @@
 package org.jpa.Florarie;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 
 @Entity

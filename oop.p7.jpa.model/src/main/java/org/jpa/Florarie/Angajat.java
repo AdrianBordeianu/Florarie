@@ -1,10 +1,10 @@
 package org.jpa.Florarie;
 
+
 import javax.persistence.Entity;
 
 @Entity
 public class Angajat extends Persoana {
-
 	public Angajat(Integer id, String nume, Integer salariu) {
 		super(id, nume);
 		this.salariu = salariu;
@@ -15,10 +15,7 @@ public class Angajat extends Persoana {
 		super();
 		this.rol = Role.ANGAJAT;
 	}
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	private Role rol;
@@ -40,5 +37,5 @@ public class Angajat extends Persoana {
 	public void setSalariu(Integer salariu) {
 		this.salariu = salariu;
 	}
-	
+
 }

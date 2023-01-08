@@ -10,6 +10,7 @@ import javax.persistence.*;
  *
  */
 @Entity
+
 public class Persoana implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -24,6 +25,7 @@ public class Persoana implements Serializable {
 		this.id = id;
 		this.nume = nume;
 	}
+	
 	
 	public Persoana() {
 		super();
