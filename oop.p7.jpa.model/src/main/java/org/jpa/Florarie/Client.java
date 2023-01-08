@@ -6,60 +6,31 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
-public class Client { 
-	@Id
-	@GeneratedValue(strategy = AUTO)
-	private Integer id;
+public class Client extends Persoana { 
+	private static final long serialVersionUID = 1L;
+
 	
-	private String nume;
+	private Boolean clientFidel;
+	
+	public Client(Integer id, String nume, Boolean clientFidel) {
+		super(id, nume);
+		this.clientFidel = clientFidel;
+	}
 	
 	public Client(Integer id, String nume) {
-		this.id = id;
-		this.nume = nume;
+		super(id, nume);
 	}
+	
 	public Client() {
 	}
 	
-	public Integer getId() {
-		return id;
+
+	public Boolean getClientFidel() {
+		return clientFidel;
 	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getNume() {
-		return nume;
-	}
-	public void setNume(String nume) {
-		this.nume = nume;
+
+	public void setClientFidel(Boolean clientFidel) {
+		this.clientFidel = clientFidel;
 	}
 	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Client other = (Client) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-	
-	@Override
-	public String toString() {
-		return "Client id:" + id + ", nume:" + nume;
-	}	
 }
