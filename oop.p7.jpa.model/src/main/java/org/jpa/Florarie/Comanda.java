@@ -28,6 +28,7 @@ public class Comanda {
 		this.id = id;
 		this.dataComanda = dataComanda;
 	}	
+	
 	public Comanda(Integer id, Date dataComanda, List<ArticolComanda> articole,
 			Client client) {
 		this.id = id;
@@ -98,23 +99,23 @@ public class Comanda {
 		return result;
 	}
 	
-	public void adauga(Produs produs, Double cantitate){
+	public void adauga(Buchet buchet, Integer cantitate){
 		ArticolComanda articol = new ArticolComanda();
 		articol.setComanda(this);
-		articol.setProdus(produs);
+		articol.setBuchet(buchet);
 		articol.setCantitate(cantitate);
 		this.articole.add(articol);
 	}
 	
-	public Boolean verificaProdus(Produs produs){
+	public Boolean verificaBuchet(Buchet buchet){
 		return null;
 	}
 	
-	public ArticolComanda getArticolComanda(Produs produs){
+	public ArticolComanda getArticolComanda(Buchet buchet){
 		return null;
 	}
 	
-	public Double getValoareComandataProdus(Produs produs){
+	public Double getValoareComandataBuchet(Buchet buchet){
 		return null;
 	}
 	

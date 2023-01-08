@@ -1,10 +1,13 @@
 package org.jpa.Florarie;
 
+import java.util.List;
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Produs {
+public class Buchet {
 	// Atribute private
 	@Id
 	private Integer cod;
@@ -14,17 +17,20 @@ public class Produs {
 	private String um;
 	
 	private Double pretUnitar;
+	
+	private List<Floare> flori;
 
 	// Constructori	
-	public Produs(Integer cod, String denumire, String um, Double pretUnitar) {
+	public Buchet(Integer cod, String denumire, String um, Double pretUnitar, List<Floare> flori) {
 		super();
 		this.cod = cod;
 		this.denumire = denumire;
 		this.um = um;
 		this.pretUnitar = pretUnitar;
+		this.flori = flori;
 	}
 	
-	public Produs(){}
+	public Buchet(){}
 	
 	// Getteri si setteri
 	
@@ -60,6 +66,11 @@ public class Produs {
 		this.pretUnitar = pretUnitar;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(denumire, pretUnitar);
+	}
+
 	// Criteriu de egalitate
 	
 	@Override
@@ -70,26 +81,22 @@ public class Produs {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Produs other = (Produs) obj;
-		if (cod == null) {
-			if (other.cod != null)
-				return false;
-		} else if (!cod.equals(other.cod))
-			return false;
-		return true;
+		Buchet other = (Buchet) obj;
+		return Objects.equals(denumire, other.denumire) && Objects.equals(pretUnitar, other.pretUnitar);
 	}	
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((cod == null) ? 0 : cod.hashCode());
-		return result;
-	}	
 	
 	// Operatii specifice logicii modelului afacerii	
 	
 	public String toString(){
-		return "Produs: cod:" + this.cod + ", denumire:"  + this.denumire;
+		return "Buchet: cod:" + this.cod + ", denumire:"  + this.denumire;
+	}
+
+	public List<Floare> getFlori() {
+		return flori;
+	}
+
+	public void setFlori(List<Floare> flori) {
+		this.flori = flori;
 	}	
 }

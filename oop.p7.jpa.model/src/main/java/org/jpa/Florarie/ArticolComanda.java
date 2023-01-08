@@ -10,18 +10,18 @@ public class ArticolComanda {
 	private Integer id;
 	
 	@ManyToOne
-	private Produs produs; 
+	private Buchet buchet; 
 	
-	private Double cantitate;
+	private Integer cantitate;
 	
 	@ManyToOne
 	private Comanda comanda;
 	
 	
-	public ArticolComanda(Integer id, Produs produs, Double cantitate,
+	public ArticolComanda(Integer id, Buchet buchet, Integer cantitate,
 			Comanda comanda) {
 		this.id = id;
-		this.produs = produs;
+		this.buchet = buchet;
 		this.cantitate = cantitate;
 		this.comanda = comanda;
 	}
@@ -34,9 +34,9 @@ public class ArticolComanda {
 		this.comanda = comanda;
 	}
 	
-	public ArticolComanda(Integer id, Produs produs, Double cantitate) {
+	public ArticolComanda(Integer id, Buchet buchet, Integer cantitate) {
 		this.id = id;
-		this.produs = produs;
+		this.buchet = buchet;
 		this.cantitate = cantitate;
 	}
 
@@ -46,23 +46,23 @@ public class ArticolComanda {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Produs getProdus() {
-		return produs;
+	public Buchet getBuchet() {
+		return buchet;
 	}
-	public void setProdus(Produs produs) {
-		this.produs = produs;
+	public void setBuchet(Buchet buchet) {
+		this.buchet = buchet;
 	}
-	public Double getCantitate() {
+	public Integer getCantitate() {
 		return cantitate;
 	}
-	public void setCantitate(Double cantitate) {
+	public void setCantitate(Integer cantitate) {
 		this.cantitate = cantitate;
 	}
 	public Double getValoareArticol(){
-		if (produs == null || cantitate == null)
+		if (buchet == null || cantitate == null)
 			return 0.0;
 		
-		return produs.getPretUnitar() * cantitate;
+		return buchet.getPretUnitar() * cantitate;
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class ArticolComanda {
 	
 	@Override
 	public String toString() {
-		return "ArticolComanda: id:" + id + ", " + produs
+		return "ArticolComanda: id:" + id + ", " + buchet
 				+ ", cantitate:" + cantitate + ", valoare Articol:"
 				+ getValoareArticol();
 	}	
