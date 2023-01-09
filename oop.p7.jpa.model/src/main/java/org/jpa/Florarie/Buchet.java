@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Buchet {
@@ -18,6 +19,7 @@ public class Buchet {
 		
 		private Double pretUnitar;
 		
+		@OneToMany(mappedBy = "buchet")
 		private List<Floare> flori;
 
 		// Constructori	

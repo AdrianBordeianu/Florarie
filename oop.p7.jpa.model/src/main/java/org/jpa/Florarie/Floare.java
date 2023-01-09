@@ -21,11 +21,13 @@ public class Floare implements Serializable {
 	
 	private String culoare;
 	
+	@ManyToOne
+	private Buchet buchet;
 
 	public Floare(Integer id, String denumire, String culoare) {
 		this.id = id;
 		this.denumire = denumire;
-		this.culoare= culoare;
+		this.culoare = culoare;
 	}
 	
 	public Floare() {
